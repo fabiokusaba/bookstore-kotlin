@@ -1,4 +1,4 @@
-package com.fabiokusaba.bookstore.domain
+package com.fabiokusaba.bookstore.domain.entities
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

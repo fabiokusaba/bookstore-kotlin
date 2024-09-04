@@ -1,4 +1,4 @@
-package com.fabiokusaba.bookstore.domain
+package com.fabiokusaba.bookstore.domain.entities
 
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
