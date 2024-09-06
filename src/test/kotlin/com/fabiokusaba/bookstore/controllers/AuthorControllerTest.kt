@@ -3,6 +3,7 @@ package com.fabiokusaba.bookstore.controllers
 import com.fabiokusaba.bookstore.domain.dto.AuthorDto
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
 import com.fabiokusaba.bookstore.services.AuthorService
+import com.fabiokusaba.bookstore.testAuthorDtoA
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
@@ -41,13 +42,7 @@ class AuthorControllerTest(
             contentType = MediaType.APPLICATION_JSON
             accept = MediaType.APPLICATION_JSON
             content = objectMapper.writeValueAsString(
-                AuthorDto(
-                    id = null,
-                    name = "John Doe",
-                    age = 30,
-                    image = "author-image.jpeg",
-                    description = "some-description.jpeg"
-                )
+                testAuthorDtoA()
             )
         }
 
@@ -56,7 +51,7 @@ class AuthorControllerTest(
             name = "John Doe",
             age = 30,
             image = "author-image.jpeg",
-            description = "some-description.jpeg"
+            description = "Some description"
         )
 
         verify{ authorService.save(expected) }
@@ -69,13 +64,7 @@ class AuthorControllerTest(
             contentType = MediaType.APPLICATION_JSON
             accept = MediaType.APPLICATION_JSON
             content = objectMapper.writeValueAsString(
-                AuthorDto(
-                    id = null,
-                    name = "John Doe",
-                    age = 30,
-                    image = "author-image.jpeg",
-                    description = "some-description.jpeg"
-                )
+                testAuthorDtoA()
             )
         }.andExpect {
             status { isCreated() }
