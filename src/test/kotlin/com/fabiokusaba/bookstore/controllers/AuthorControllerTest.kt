@@ -19,8 +19,8 @@ import org.springframework.test.web.servlet.post
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class AuthorControllerTest(
-    @Autowired private val mockMvc: MockMvc,
+class AuthorControllerTest @Autowired constructor(
+    private val mockMvc: MockMvc,
     @MockkBean val authorService: AuthorService
 ) {
 
