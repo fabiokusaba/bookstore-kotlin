@@ -50,7 +50,7 @@ class AuthorServiceImplTest @Autowired constructor(
     @Test
     fun `test that get returns author when author is present in the database`() {
         val savedAuthor = authorRepository.save(testAuthorEntityA())
-        val result = underTest.get(1)
+        val result = underTest.get(savedAuthor.id!!)
         assertThat(result).isNotNull()
     }
 }
