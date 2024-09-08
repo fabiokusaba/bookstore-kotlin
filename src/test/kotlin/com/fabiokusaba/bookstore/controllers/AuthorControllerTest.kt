@@ -1,6 +1,5 @@
 package com.fabiokusaba.bookstore.controllers
 
-import com.fabiokusaba.bookstore.domain.dto.AuthorDto
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
 import com.fabiokusaba.bookstore.services.AuthorService
 import com.fabiokusaba.bookstore.testAuthorDtoA
@@ -34,7 +33,7 @@ class AuthorControllerTest @Autowired constructor(
     @BeforeEach
     fun beforeEach() {
         every {
-            authorService.save(any())
+            authorService.create(any())
         } answers {
             firstArg()
         }
@@ -59,7 +58,7 @@ class AuthorControllerTest @Autowired constructor(
             description = "Some description"
         )
 
-        verify{ authorService.save(expected) }
+        verify{ authorService.create(expected) }
     }
 
     @Test

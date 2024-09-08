@@ -1,6 +1,5 @@
 package com.fabiokusaba.bookstore.services.impl
 
-import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
 import com.fabiokusaba.bookstore.repositories.AuthorRepository
 import com.fabiokusaba.bookstore.testAuthorEntityA
 import org.assertj.core.api.Assertions.assertThat
@@ -16,7 +15,7 @@ class AuthorServiceImplTest @Autowired constructor(
 
     @Test
     fun `test that save persists the Author in the database`() {
-        val savedAuthor = underTest.save(testAuthorEntityA())
+        val savedAuthor = underTest.create(testAuthorEntityA())
         assertThat(savedAuthor.id).isNotNull()
 
         val recalledAuthor = authorRepository.findByIdOrNull(savedAuthor.id!!)
