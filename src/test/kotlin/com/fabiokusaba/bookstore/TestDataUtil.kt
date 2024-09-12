@@ -29,7 +29,7 @@ fun testAuthorEntityB(id: Long? = null) = AuthorEntity(
 )
 
 fun testAuthorUpdateRequestDtoA(id: Long? = null) = AuthorUpdateRequestDto(
-    id = 999L,
+    id = id,
     name = "John Doe",
     age = 30,
     description = "Some description",
