@@ -33,5 +33,5 @@ fun testAuthorUpdateRequestDtoA(id: Long? = null) = AuthorUpdateRequestDto(
     name = "John Doe",
     age = 30,
     description = "Some description",
-    image = "some-image.jpeg"
+    image = "author-image.jpeg"
 )
