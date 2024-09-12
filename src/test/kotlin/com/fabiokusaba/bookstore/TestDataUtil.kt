@@ -19,3 +19,10 @@ fun testAuthorEntityA(id: Long? = null) = AuthorEntity(
     image = "author-image.jpeg"
 )
 
+fun testAuthorEntityB(id: Long? = null) = AuthorEntity(
+    id = id,
+    name = "Don Joe",
+    age = 65,
+    description = "Some other description",
+    image = "some-other-image.jpeg"
+)
