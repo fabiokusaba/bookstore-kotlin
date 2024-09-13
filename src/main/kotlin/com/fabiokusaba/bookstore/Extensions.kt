@@ -1,9 +1,11 @@
 package com.fabiokusaba.bookstore
 
 import com.fabiokusaba.bookstore.domain.AuthorUpdateRequest
+import com.fabiokusaba.bookstore.domain.BookSummary
 import com.fabiokusaba.bookstore.domain.dto.AuthorDto
 import com.fabiokusaba.bookstore.domain.dto.AuthorUpdateRequestDto
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
+import com.fabiokusaba.bookstore.domain.entities.BookEntity
 
 fun AuthorEntity.toAuthorDto() = AuthorDto(
     id = this.id,
@@ -27,4 +29,12 @@ fun AuthorUpdateRequestDto.toAuthorUpdateRequest() = AuthorUpdateRequest(
     age = this.age,
     description = this.description,
     image = this.image
+)
+
+fun BookSummary.toBookEntity(author: AuthorEntity) = BookEntity(
+    isbn = this.isbn,
+    title = this.title,
+    description = this.description,
+    image = this.image,
+    authorEntity = author
 )
