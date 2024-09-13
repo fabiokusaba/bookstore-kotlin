@@ -48,10 +48,28 @@ fun AuthorSummaryDto.toAuthorSummary() = AuthorSummary(
     image = this.image
 )
 
+fun AuthorEntity.toAuthorSummaryDto(): AuthorSummaryDto {
+    val authorId = this.id
+    checkNotNull(authorId)
+    return AuthorSummaryDto(
+        id = authorId,
+        name = this.name,
+        image = this.image
+    )
+}
+
 fun BookSummaryDto.toBookSummary() = BookSummary(
     isbn = this.isbn,
     title = this.title,
     description = this.description,
     image = this.image,
     author = this.author.toAuthorSummary()
+)
+
+fun BookEntity.toBookSummaryDto() = BookSummaryDto(
+    isbn = this.isbn,
+    title = this.title,
+    description = this.description,
+    image = this.image,
+    author = authorEntity.toAuthorSummaryDto()
 )
