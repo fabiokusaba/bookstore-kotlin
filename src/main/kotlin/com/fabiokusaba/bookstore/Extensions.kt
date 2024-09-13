@@ -9,6 +9,7 @@ import com.fabiokusaba.bookstore.domain.dto.AuthorUpdateRequestDto
 import com.fabiokusaba.bookstore.domain.dto.BookSummaryDto
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
 import com.fabiokusaba.bookstore.domain.entities.BookEntity
+import com.fabiokusaba.bookstore.exceptions.InvalidAuthorException
 
 fun AuthorEntity.toAuthorDto() = AuthorDto(
     id = this.id,
@@ -49,8 +50,7 @@ fun AuthorSummaryDto.toAuthorSummary() = AuthorSummary(
 )
 
 fun AuthorEntity.toAuthorSummaryDto(): AuthorSummaryDto {
-    val authorId = this.id
-    checkNotNull(authorId)
+    val authorId = this.id ?: throw InvalidAuthorException()
     return AuthorSummaryDto(
         id = authorId,
         name = this.name,
