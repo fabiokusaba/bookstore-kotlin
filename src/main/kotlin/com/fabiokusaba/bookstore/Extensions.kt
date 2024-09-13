@@ -1,9 +1,12 @@
 package com.fabiokusaba.bookstore
 
+import com.fabiokusaba.bookstore.domain.AuthorSummary
 import com.fabiokusaba.bookstore.domain.AuthorUpdateRequest
 import com.fabiokusaba.bookstore.domain.BookSummary
 import com.fabiokusaba.bookstore.domain.dto.AuthorDto
+import com.fabiokusaba.bookstore.domain.dto.AuthorSummaryDto
 import com.fabiokusaba.bookstore.domain.dto.AuthorUpdateRequestDto
+import com.fabiokusaba.bookstore.domain.dto.BookSummaryDto
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
 import com.fabiokusaba.bookstore.domain.entities.BookEntity
 
@@ -37,4 +40,18 @@ fun BookSummary.toBookEntity(author: AuthorEntity) = BookEntity(
     description = this.description,
     image = this.image,
     authorEntity = author
+)
+
+fun AuthorSummaryDto.toAuthorSummary() = AuthorSummary(
+    id = this.id,
+    name = this.name,
+    image = this.image
+)
+
+fun BookSummaryDto.toBookSummary() = BookSummary(
+    isbn = this.isbn,
+    title = this.title,
+    description = this.description,
+    image = this.image,
+    author = this.author.toAuthorSummary()
 )
