@@ -6,6 +6,7 @@ import com.fabiokusaba.bookstore.repositories.AuthorRepository
 import com.fabiokusaba.bookstore.testAuthorEntityA
 import com.fabiokusaba.bookstore.testAuthorEntityB
 import com.fabiokusaba.bookstore.testAuthorUpdateRequestA
+import jakarta.transaction.Transactional
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -14,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.repository.findByIdOrNull
 
 @SpringBootTest
+@Transactional
 class AuthorServiceImplTest @Autowired constructor(
     private val underTest: AuthorServiceImpl,
     private val authorRepository: AuthorRepository) {
