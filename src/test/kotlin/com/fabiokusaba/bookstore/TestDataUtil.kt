@@ -1,5 +1,6 @@
 package com.fabiokusaba.bookstore
 
+import com.fabiokusaba.bookstore.domain.AuthorUpdateRequest
 import com.fabiokusaba.bookstore.domain.dto.AuthorDto
 import com.fabiokusaba.bookstore.domain.dto.AuthorUpdateRequestDto
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
@@ -29,6 +30,14 @@ fun testAuthorEntityB(id: Long? = null) = AuthorEntity(
 )
 
 fun testAuthorUpdateRequestDtoA(id: Long? = null) = AuthorUpdateRequestDto(
+    id = id,
+    name = "John Doe",
+    age = 30,
+    description = "Some description",
+    image = "author-image.jpeg"
+)
+
+fun testAuthorUpdateRequestA(id: Long? = null) = AuthorUpdateRequest(
     id = id,
     name = "John Doe",
     age = 30,
