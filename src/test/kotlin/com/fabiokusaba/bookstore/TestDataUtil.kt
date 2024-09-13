@@ -4,6 +4,7 @@ import com.fabiokusaba.bookstore.domain.AuthorUpdateRequest
 import com.fabiokusaba.bookstore.domain.dto.AuthorDto
 import com.fabiokusaba.bookstore.domain.dto.AuthorUpdateRequestDto
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
+import com.fabiokusaba.bookstore.domain.entities.BookEntity
 
 fun testAuthorDtoA(id: Long? = null) = AuthorDto(
     id = id,
@@ -43,4 +44,12 @@ fun testAuthorUpdateRequestA(id: Long? = null) = AuthorUpdateRequest(
     age = 30,
     description = "Some description",
     image = "author-image.jpeg"
+)
+
+fun testBookEntityA(isbn: String, author: AuthorEntity) = BookEntity(
+    isbn = isbn,
+    title = "Test Book A",
+    description = "A test book",
+    image = "book-image.jpeg",
+    authorEntity = author
 )
