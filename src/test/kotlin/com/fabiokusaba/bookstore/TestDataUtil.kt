@@ -8,6 +8,8 @@ import com.fabiokusaba.bookstore.domain.dto.BookSummaryDto
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
 import com.fabiokusaba.bookstore.domain.entities.BookEntity
 
+const val BOOK_A_ISBN = "978-089-230342-0777"
+
 fun testAuthorDtoA(id: Long? = null) = AuthorDto(
     id = id,
     name = "John Doe",
