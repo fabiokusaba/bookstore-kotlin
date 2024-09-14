@@ -1,6 +1,8 @@
 package com.fabiokusaba.bookstore
 
+import com.fabiokusaba.bookstore.domain.AuthorSummary
 import com.fabiokusaba.bookstore.domain.AuthorUpdateRequest
+import com.fabiokusaba.bookstore.domain.BookSummary
 import com.fabiokusaba.bookstore.domain.dto.AuthorDto
 import com.fabiokusaba.bookstore.domain.dto.AuthorSummaryDto
 import com.fabiokusaba.bookstore.domain.dto.AuthorUpdateRequestDto
@@ -40,6 +42,12 @@ fun testAuthorSummaryDtoA(id: Long) = AuthorSummaryDto(
     image = "author-image.jpeg"
 )
 
+fun testAuthorSummaryA(id: Long) = AuthorSummary(
+    id = id,
+    name = "John Doe",
+    image = "author-image.jpeg"
+)
+
 fun testAuthorUpdateRequestDtoA(id: Long? = null) = AuthorUpdateRequestDto(
     id = id,
     name = "John Doe",
@@ -65,6 +73,14 @@ fun testBookEntityA(isbn: String, author: AuthorEntity) = BookEntity(
 )
 
 fun testBookSummaryDtoA(isbn: String, author: AuthorSummaryDto) = BookSummaryDto(
+    isbn = isbn,
+    title = "Test Book A",
+    description = "A test book",
+    image = "book-image.jpeg",
+    author = author
+)
+
+fun testBookSummaryA(isbn: String, author: AuthorSummary) = BookSummary(
     isbn = isbn,
     title = "Test Book A",
     description = "A test book",
