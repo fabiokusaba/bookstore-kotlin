@@ -87,3 +87,11 @@ fun testBookSummaryA(isbn: String, author: AuthorSummary) = BookSummary(
     image = "book-image.jpeg",
     author = author
 )
+
+fun testBookSummaryB(isbn: String, author: AuthorSummary) = BookSummary(
+    isbn = isbn,
+    title = "Test Book B",
+    description = "Another test book",
+    image = "book-image-b.jpeg",
+    author = author
+)
