@@ -123,4 +123,44 @@ class BooksControllerTest @Autowired constructor(
             content { jsonPath("$[0].author.image", equalTo("author-image.jpeg")) }
         }
     }
+
+    @Test
+    fun `test that list returns no books when they do not match the author ID`() {
+        every {
+            bookService.list(authorId = any())
+        } answers {
+            emptyList()
+        }
+
+        mockMvc.get("/v1/books?author=999") {
+            contentType = MediaType.APPLICATION_JSON
+            accept = MediaType.APPLICATION_JSON
+        }.andExpect {
+            status { isOk() }
+            content { json("[]") }
+        }
+    }
+
+    @Test
+    fun `test that list returns book when matches author ID`() {
+        every {
+            bookService.list(authorId = 1L)
+        } answers {
+            listOf(testBookEntityA(BOOK_A_ISBN, testAuthorEntityA(id = 1L)))
+        }
+
+        mockMvc.get("/v1/books?author=1") {
+            contentType = MediaType.APPLICATION_JSON
+            accept = MediaType.APPLICATION_JSON
+        }.andExpect {
+            status { isOk() }
+            content { jsonPath("$[0].isbn", equalTo(BOOK_A_ISBN)) }
+            content { jsonPath("$[0].title", equalTo("Test Book A")) }
+            content { jsonPath("$[0].description", equalTo("A test book")) }
+            content { jsonPath("$[0].image", equalTo("book-image.jpeg")) }
+            content { jsonPath("$[0].author.id", equalTo(1)) }
+            content { jsonPath("$[0].author.name", equalTo("John Doe")) }
+            content { jsonPath("$[0].author.image", equalTo("author-image.jpeg")) }
+        }
+    }
 }
