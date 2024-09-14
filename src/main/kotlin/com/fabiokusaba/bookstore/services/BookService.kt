@@ -1,6 +1,7 @@
 package com.fabiokusaba.bookstore.services
 
 import com.fabiokusaba.bookstore.domain.BookSummary
+import com.fabiokusaba.bookstore.domain.BookUpdateRequest
 import com.fabiokusaba.bookstore.domain.entities.BookEntity
 
 interface BookService {
@@ -10,4 +11,6 @@ interface BookService {
     fun list(authorId: Long? = null): List<BookEntity>
 
     fun get(isbn: String): BookEntity?
+
+    fun partialUpdate(isbn: String, bookUpdateRequest: BookUpdateRequest): BookEntity
 }

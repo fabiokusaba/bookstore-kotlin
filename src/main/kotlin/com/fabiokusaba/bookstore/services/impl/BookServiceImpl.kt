@@ -1,6 +1,7 @@
 package com.fabiokusaba.bookstore.services.impl
 
 import com.fabiokusaba.bookstore.domain.BookSummary
+import com.fabiokusaba.bookstore.domain.BookUpdateRequest
 import com.fabiokusaba.bookstore.domain.entities.BookEntity
 import com.fabiokusaba.bookstore.repositories.AuthorRepository
 import com.fabiokusaba.bookstore.repositories.BookRepository
@@ -36,5 +37,18 @@ class BookServiceImpl(
 
     override fun get(isbn: String): BookEntity? {
         return bookRepository.findByIdOrNull(isbn)
+    }
+
+    override fun partialUpdate(isbn: String, bookUpdateRequest: BookUpdateRequest): BookEntity {
+        val existingBook = bookRepository.findByIdOrNull(isbn)
+        checkNotNull(existingBook)
+
+        val updatedBook = existingBook.copy(
+            title = bookUpdateRequest.title ?: existingBook.title,
+            description = bookUpdateRequest.description ?: existingBook.description,
+            image = bookUpdateRequest.image ?: existingBook.image
+        )
+
+        return bookRepository.save(updatedBook)
     }
 }
