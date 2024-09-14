@@ -3,10 +3,8 @@ package com.fabiokusaba.bookstore
 import com.fabiokusaba.bookstore.domain.AuthorSummary
 import com.fabiokusaba.bookstore.domain.AuthorUpdateRequest
 import com.fabiokusaba.bookstore.domain.BookSummary
-import com.fabiokusaba.bookstore.domain.dto.AuthorDto
-import com.fabiokusaba.bookstore.domain.dto.AuthorSummaryDto
-import com.fabiokusaba.bookstore.domain.dto.AuthorUpdateRequestDto
-import com.fabiokusaba.bookstore.domain.dto.BookSummaryDto
+import com.fabiokusaba.bookstore.domain.BookUpdateRequest
+import com.fabiokusaba.bookstore.domain.dto.*
 import com.fabiokusaba.bookstore.domain.entities.AuthorEntity
 import com.fabiokusaba.bookstore.domain.entities.BookEntity
 import com.fabiokusaba.bookstore.exceptions.InvalidAuthorException
@@ -72,4 +70,10 @@ fun BookEntity.toBookSummaryDto() = BookSummaryDto(
     description = this.description,
     image = this.image,
     author = authorEntity.toAuthorSummaryDto()
+)
+
+fun BookUpdateRequestDto.toBookUpdateRequest() = BookUpdateRequest(
+    title = this.title,
+    description = this.description,
+    image = this.image
 )
