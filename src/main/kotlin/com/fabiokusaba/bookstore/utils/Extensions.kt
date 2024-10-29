@@ -1,4 +1,4 @@
-package com.fabiokusaba.bookstore
+package com.fabiokusaba.bookstore.utils
 
 import com.fabiokusaba.bookstore.domain.AuthorSummary
 import com.fabiokusaba.bookstore.domain.AuthorUpdateRequest

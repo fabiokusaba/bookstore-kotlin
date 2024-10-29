@@ -3,9 +3,9 @@ package com.fabiokusaba.bookstore.controllers
 import com.fabiokusaba.bookstore.domain.dto.AuthorDto
 import com.fabiokusaba.bookstore.domain.dto.AuthorUpdateRequestDto
 import com.fabiokusaba.bookstore.services.AuthorService
-import com.fabiokusaba.bookstore.toAuthorDto
-import com.fabiokusaba.bookstore.toAuthorEntity
-import com.fabiokusaba.bookstore.toAuthorUpdateRequest
+import com.fabiokusaba.bookstore.utils.toAuthorDto
+import com.fabiokusaba.bookstore.utils.toAuthorEntity
+import com.fabiokusaba.bookstore.utils.toAuthorUpdateRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping

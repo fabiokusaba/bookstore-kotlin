@@ -6,7 +6,7 @@ import com.fabiokusaba.bookstore.domain.entities.BookEntity
 import com.fabiokusaba.bookstore.repositories.AuthorRepository
 import com.fabiokusaba.bookstore.repositories.BookRepository
 import com.fabiokusaba.bookstore.services.BookService
-import com.fabiokusaba.bookstore.toBookEntity
+import com.fabiokusaba.bookstore.utils.toBookEntity
 import jakarta.transaction.Transactional
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service

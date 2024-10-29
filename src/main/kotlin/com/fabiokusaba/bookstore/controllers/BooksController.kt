@@ -4,9 +4,9 @@ import com.fabiokusaba.bookstore.domain.dto.BookSummaryDto
 import com.fabiokusaba.bookstore.domain.dto.BookUpdateRequestDto
 import com.fabiokusaba.bookstore.exceptions.InvalidAuthorException
 import com.fabiokusaba.bookstore.services.BookService
-import com.fabiokusaba.bookstore.toBookSummary
-import com.fabiokusaba.bookstore.toBookSummaryDto
-import com.fabiokusaba.bookstore.toBookUpdateRequest
+import com.fabiokusaba.bookstore.utils.toBookSummary
+import com.fabiokusaba.bookstore.utils.toBookSummaryDto
+import com.fabiokusaba.bookstore.utils.toBookUpdateRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
